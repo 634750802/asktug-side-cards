@@ -1,0 +1,22 @@
+<div class="asktug-card-header">
+  <div class="asktug-card-header-title">
+    精选专栏
+    {{d-icon "asktug-icon-posts-logo"}}
+  </div>
+  <div class="asktug-card-header-extra">
+    <a href="https://tidb.net/blog" target="_blank">
+      更多>
+    </a>
+  </div>
+</div>
+<div class="asktug-card-body">
+  <ul class="asktug-blog-posts">
+    {{#each posts_list as |post|}}
+      <li>
+        <a href={{blog-url post}} target="_blank">
+          {{post.title}}
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>

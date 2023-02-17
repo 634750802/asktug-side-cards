@@ -1,0 +1,12 @@
+{
+  "author": "634750802",
+  "license": "MIT",
+  "scripts": {
+    "build": "node svgo.js"
+  },
+  "devDependencies": {
+    "@types/ember": "^4.0.3",
+    "eslint-config-discourse": "latest",
+    "svgo": "^3.0.2"
+  }
+}

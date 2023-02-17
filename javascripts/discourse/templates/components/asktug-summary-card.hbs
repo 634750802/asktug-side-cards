@@ -1,0 +1,44 @@
+<div class="asktug-card-header">
+  <div class="asktug-card-header-title">
+    我的社区旅程
+  </div>
+  <div class="asktug-card-header-extra">
+    {{d-icon "asktug-icon-rank"}}
+    排名
+    <span class="numb">
+      {{rank_number}}
+    </span>
+  </div>
+</div>
+<div class="asktug-card-body">
+  <div class="asktug-summary-items">
+    {{#each items as |item|}}
+      <div class="asktug-summary-item">
+        <span class="asktug-summary-item-value">{{lookup this item.key}}</span>
+        <span class="asktug-summary-item-name">
+          {{d-icon item.icon}}
+          {{item.title}}
+        </span>
+      </div>
+    {{/each}}
+  </div>
+  <hr>
+  <div class="asktug-summary-badges">
+    <div class="asktug-summary-badges-images">
+      {{#each badges as |badge|}}
+        <img width="28" height="28" src={{badge.image_url}} alt={{badge.name}} title={{badge.name}}>
+      {{/each}}
+    </div>
+    <div class="asktug-summary-badges-count">
+      {{badges.length}}<span class="total">/{{allBadges.length}}</span>
+    </div>
+  </div>
+  <div class="asktug-summary-buttons">
+    <a class="button" href={{home_url}}>
+      个人主页
+    </a>
+    <a class="button" href={{me_url}} onclick={{action "gotoMePage"}}>
+      我的论坛
+    </a>
+  </div>
+</div>

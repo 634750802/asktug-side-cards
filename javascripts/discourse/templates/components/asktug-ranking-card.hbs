@@ -1,0 +1,58 @@
+<div class="asktug-card-header">
+  <div class="asktug-card-header-title">
+    本周达人
+    {{d-icon "asktug-icon-ranking-logo"}}
+  </div>
+  <div class="asktug-card-header-extra">
+    <a href="/x/ranking">
+      更多>
+    </a>
+  </div>
+</div>
+<div class="asktug-card-body">
+  <table class="asktug-ranking-table">
+    <thead>
+    <tr>
+      <td>排名</td>
+      <td>昵称</td>
+      <td>经验值</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each users_list as |user|}}
+      {{#if (eq me.username user.user.username) }}
+        <tr class="me">
+          <th>
+            {{user.ranking}}
+          </th>
+          <td>
+            {{user.user.username}}
+          </td>
+          <td>
+            {{user.exps}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <th>
+            {{user.ranking}}
+          </th>
+          <td>
+            {{user.user.username}}
+          </td>
+          <td>
+            {{user.exps}}
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+    {{#if (and me (not has_me))}}
+      <tr class="me">
+        <th>{{me.ranking}}</th>
+        <td>{{me.username}}</td>
+        <td>{{me.exp}}</td>
+      </tr>
+    {{/if}}
+    </tbody>
+  </table>
+</div>

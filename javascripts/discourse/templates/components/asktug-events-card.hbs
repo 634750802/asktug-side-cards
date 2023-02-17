@@ -1,0 +1,34 @@
+<div class="asktug-card-header">
+  <div class="asktug-card-header-title">
+    活动日历
+    {{d-icon "asktug-icon-events-logo"}}
+  </div>
+  <div class="asktug-card-header-extra">
+    <a href="https://tidb.net/events" target="_blank">
+      更多>
+    </a>
+  </div>
+</div>
+<div class="asktug-card-body">
+  <ul class="asktug-events-list">
+    {{#each events_list as |event|}}
+      <li>
+        <a class="asktug-event-item" href={{event.link}} target="_blank">
+          <div class="asktug-event-item-calendar">
+            <span class="month">{{event.month}}</span>
+            <span class="day">{{event.day}}</span>
+          </div>
+          <div class="asktug-event-item-body">
+            <div class="asktug-event-item-body-title">
+              {{event.title}}
+            </div>
+            <div class="asktug-event-item-body-meta">
+              <span class="dot"></span>
+              {{event.type}}
+            </div>
+          </div>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
