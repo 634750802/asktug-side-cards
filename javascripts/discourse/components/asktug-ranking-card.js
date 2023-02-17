@@ -17,6 +17,9 @@ export default Component.extend({
 
   @discourseComputed("asktugCore.ssoMe", "currentUser")
   me(ssoMe, currentUser) {
+    if (!currentUser) {
+      return null;
+    }
     return {
       ranking: ssoMe?.current_rank,
       username: currentUser?.username,
