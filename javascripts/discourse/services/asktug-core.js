@@ -37,7 +37,7 @@ export default class AsktugCore extends Service {
   }
 
   reloadEvents() {
-    fetch('https://tidb.net/next-api/cms/tidbio-homepage-main-activities').then(transformResponse).then(events => {
+    fetch('https://tidb.net/next-api/cms/tidbio-activitiespage-activities?_sort=date:DESC&_limit=2').then(transformResponse).then(events => {
       this.events = events;
       this.notifyPropertyChange('events');
     });

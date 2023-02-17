@@ -3,6 +3,7 @@ import {action} from "@ember/object";
 import {inject as service} from "@ember/service";
 import discourseComputed from "discourse-common/utils/decorators";
 import Badge from "discourse/models/badge";
+import UserBadge from "discourse/models/user-badge";
 
 export default Component.extend({
   router: service(),
@@ -12,14 +13,14 @@ export default Component.extend({
   summary: null,
   allBadges: [],
 
-  @discourseComputed('summary')
-  badges() {
-    return (this.summary?.badges ?? []).slice(0, 5);
+  @discourseComputed('userBadges')
+  badges(userBadges) {
+    return (userBadges ?? []).slice(0, 5);
   },
 
-  @discourseComputed('summary')
-  badges_count() {
-    return this.summary?.badges.length ?? '-';
+  @discourseComputed('userBadges')
+  badges_count(userBadges) {
+    return userBadges?.length ?? '-';
   },
 
   @discourseComputed('summary')
@@ -90,6 +91,7 @@ export default Component.extend({
     this.loadAllBadges();
     if (this.currentUser) {
       this.reloadSummary();
+      this.reloadUserBadges();
     }
   },
 
@@ -97,6 +99,13 @@ export default Component.extend({
     Badge.findAll().then(badges => {
       this.allBadges = badges.filter(b => b.enabled);
       this.notifyPropertyChange('allBadges');
+    });
+  },
+
+  reloadUserBadges() {
+    UserBadge.findByUsername(this.currentUser.username).then(res => {
+      this.userBadges = res.map(({badge}) => badge);
+      this.notifyPropertyChange('userBadges');
     });
   },
 
