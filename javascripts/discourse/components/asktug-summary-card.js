@@ -18,6 +18,11 @@ export default Component.extend({
   },
 
   @discourseComputed('summary')
+  badges_count() {
+    return this.summary?.badges.length ?? '-';
+  },
+
+  @discourseComputed('summary')
   topics_count() {
     return this.summary?.topic_count ?? '-';
   },
