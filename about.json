@@ -4,5 +4,7 @@
   "assets": {
   },
   "name": "AskTUG Side Cards",
+  "theme_version": "3.3.0",
+  "minimum_discourse_version": "3.3.0.beta1",
   "component": true
 }

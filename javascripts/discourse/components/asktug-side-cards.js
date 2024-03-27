@@ -1,7 +1,8 @@
+import {observes} from "@ember-decorators/object";
 import Component from "@ember/component";
 import {and} from "@ember/object/computed";
 import {inject as service} from "@ember/service";
-import discourseComputed, {observes} from "discourse-common/utils/decorators";
+import discourseComputed from "discourse-common/utils/decorators";
 
 export default Component.extend({
   router: service(),

@@ -1,5 +1,5 @@
-import Service, {inject as service} from "@ember/service";
-import {observes} from "discourse-common/utils/decorators";
+import {observes} from "@ember-decorators/object";
+import Service from "@ember/service";
 import {transformResponse} from "../utils/fetch";
 
 export default class AsktugCore extends Service {
