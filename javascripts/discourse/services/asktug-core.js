@@ -7,12 +7,14 @@ export default class AsktugCore extends Service {
   events = null;
   ssoMe = null;
   userPosts = null;
+  config = null;
 
 
   init() {
     this.currentUserChanged();
     this.reloadPosts();
     this.reloadEvents();
+    this.reloadConfig();
   }
 
   reloadSSOMe() {
@@ -40,6 +42,13 @@ export default class AsktugCore extends Service {
     fetch('https://tidb.net/next-api/cms/tidbio-activitiespage-activities?_sort=date:DESC&_limit=2').then(transformResponse).then(events => {
       this.events = events;
       this.notifyPropertyChange('events');
+    });
+  }
+
+  reloadConfig () {
+    fetch('https://asktug.com/_/sso/api/asktug/site/config').then(transformResponse).then(config => {
+      this.config = config;
+      this.notifyPropertyChange('config');
     });
   }
 
