@@ -18,35 +18,35 @@ export default class AsktugCore extends Service {
   }
 
   reloadSSOMe() {
-    fetch('/_/sso/api/points/me').then(transformResponse).then(res => {
+    fetch('/accounts/api/points/me').then(transformResponse).then(res => {
       this.ssoMe = res.data;
       this.notifyPropertyChange('ssoMe');
     });
   }
 
   reloadUserPosts() {
-    fetch(`/_/blog/api/users/username/${this.currentUser.username}/posts`).then(transformResponse).then(res => {
+    fetch(`/blog/api/users/username/${this.currentUser.username}/posts`).then(transformResponse).then(res => {
       this.userPosts = res;
       this.notifyPropertyChange('userPosts');
     });
   }
 
   reloadPosts() {
-    fetch('/_/blog/api/posts/recommend').then(transformResponse).then(posts => {
+    fetch('/blog/api/posts/recommend').then(transformResponse).then(posts => {
       this.posts = posts;
       this.notifyPropertyChange('posts');
     });
   }
 
   reloadEvents() {
-    fetch('https://tidb.net/next-api/cms/tidbio-activitiespage-activities?_sort=date:DESC&_limit=2').then(transformResponse).then(events => {
+    fetch('/tidbcommunity/api/cms/tidbio-activitiespage-activities?_sort=date:DESC&_limit=2').then(transformResponse).then(events => {
       this.events = events;
       this.notifyPropertyChange('events');
     });
   }
 
   reloadConfig () {
-    fetch('https://asktug.com/_/sso/api/asktug/site/config').then(transformResponse).then(config => {
+    fetch('/accounts/api/asktug/site/config').then(transformResponse).then(config => {
       this.config = config;
       this.notifyPropertyChange('config');
     });

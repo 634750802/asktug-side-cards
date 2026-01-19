@@ -1,3 +1,3 @@
 export default function blogUrl(post) {
-  return `https://tidb.net/blog/${post.slug}`;
+  return `/tidbcommunity/blog/${post.slug}`;
 }

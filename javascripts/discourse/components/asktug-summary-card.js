@@ -73,7 +73,7 @@ export default class extends Component {
 
   @discourseComputed('currentUser')
   home_url(currentUser) {
-    return `https://tidb.net/u/${currentUser.username}/answer`;
+    return `/tidbcommunity/u/${currentUser.username}/answer`;
   }
 
   @discourseComputed('currentUser.username')
