@@ -38,7 +38,7 @@ export default class extends Component {
   }
 
   reloadPosts() {
-    fetch('/_/sso/api/points/top?period=weekly&limit=10').then(transformResponse).then(top => {
+    fetch('/accounts/api/points/top?period=weekly&limit=10').then(transformResponse).then(top => {
       this.top = top.data;
       this.notifyPropertyChange('top');
     });
