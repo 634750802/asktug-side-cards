@@ -25,14 +25,14 @@ export default class AsktugCore extends Service {
   }
 
   reloadUserPosts() {
-    fetch(`/blog/api/users/username/${this.currentUser.username}/posts`).then(transformResponse).then(res => {
+    fetch(`/tidbcommunity/blog/api/users/username/${this.currentUser.username}/posts`).then(transformResponse).then(res => {
       this.userPosts = res;
       this.notifyPropertyChange('userPosts');
     });
   }
 
   reloadPosts() {
-    fetch('/blog/api/posts/recommend').then(transformResponse).then(posts => {
+    fetch('/tidbcommunity/blog/api/posts/recommend').then(transformResponse).then(posts => {
       this.posts = posts;
       this.notifyPropertyChange('posts');
     });
